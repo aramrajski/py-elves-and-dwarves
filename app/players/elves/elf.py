@@ -1,11 +1,12 @@
+from abc import ABC
 from app.players.player import Player
 
 
-class Elf(Player):
+class Elf(ABC, Player):
     def __init__(self, nickname: str, musical_instrument: str) -> None:
         super().__init__(nickname)
         self._musical_instrument = musical_instrument
 
-    def play_elf_song(self) -> str:
-        return (f"{self.nickname} is playing song on "
-                f"{self._musical_instrument}")
+    def play_elf_song(self) -> None:
+        print(f"{self.nickname} is playing a song on "
+              f"{self._musical_instrument}")
